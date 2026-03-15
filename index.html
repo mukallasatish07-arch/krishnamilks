@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Fresh Milk Delivery</title>
+
+<style>
+body{
+margin:0;
+font-family:Arial;
+background:url("milk-bg.jpg") center/cover no-repeat;
+color:white;
+text-align:center;
+}
+
+/* overlay */
+.overlay{
+background:rgba(0,0,0,0.6);
+min-height:100vh;
+padding:40px;
+}
+
+h1{
+font-size:40px;
+margin-top:40px;
+}
+
+.btn{
+background:#28a745;
+padding:15px 25px;
+border:none;
+color:white;
+font-size:18px;
+border-radius:8px;
+cursor:pointer;
+margin-top:20px;
+}
+
+.container{
+display:none;
+background:white;
+color:black;
+padding:20px;
+border-radius:10px;
+max-width:400px;
+margin:30px auto;
+}
+
+input, select{
+width:90%;
+padding:10px;
+margin:10px;
+font-size:16px;
+}
+
+.review{
+margin-top:30px;
+font-style:italic;
+}
+</style>
+</head>
+
+<body>
+
+<div class="overlay">
+
+<h1>🥛 Welcome to Fresh Milk Service</h1>
+<p>Pure Milk Delivered Daily – Trusted for 20+ Years</p>
+
+<button class="btn" onclick="showOrder()">Order Milk</button>
+
+<div class="review">
+⭐ “Best quality milk!” – Ravi <br>
+⭐ “Fresh delivery every morning.” – Sita
+</div>
+
+<!-- ORDER FORM -->
+<div class="container" id="orderBox">
+
+<h2>Order Milk</h2>
+
+<input type="text" id="name" placeholder="Customer Name" required>
+<input type="tel" id="phone" placeholder="Phone Number" required>
+<input type="text" id="location" placeholder="Location" required>
+
+<label>Select Liters</label>
+<select id="liters" onchange="calculatePrice()">
+<option value="1">1 Liter</option>
+<option value="2">2 Liters</option>
+<option value="3">3 Liters</option>
+<option value="5">5 Liters</option>
+</select>
+
+<h3>Total Price: ₹ <span id="price">50</span></h3>
+
+<label>Payment Method</label>
+<select>
+<option>UPI Payment</option>
+<option>Cash on Delivery</option>
+</select>
+
+<button class="btn" onclick="placeOrder()">Place Order</button>
+
+</div>
+
+</div>
+
+<script>
+function showOrder(){
+document.getElementById("orderBox").style.display="block";
+}
+
+function calculatePrice(){
+let liters=document.getElementById("liters").value;
+document.getElementById("price").innerText=liters*50;
+}
+
+function placeOrder(){
+alert("Order Placed Successfully! We will contact you soon.");
+}
+</script>
+
+</body>
+</html>
